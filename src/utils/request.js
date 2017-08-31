@@ -50,6 +50,7 @@ const fetch = (options) => {
     })
   } else if (fetchType === 'YQL') {
     url = `http://query.yahooapis.com/v1/public/yql?q=select * from json where url='${options.url}?${encodeURIComponent(qs.stringify(options.data))}'&format=json`
+    console.log(url)
     data = null
   }
 

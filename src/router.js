@@ -132,6 +132,14 @@ const Routers = function ({ history, app }) {
             }, 'post')
           },
         }, {
+          path: 'tool',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('models/tool'))
+              cb(null, require('routes/tool/'))
+            }, 'tool')
+          },
+        }, {
           path: '*',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
